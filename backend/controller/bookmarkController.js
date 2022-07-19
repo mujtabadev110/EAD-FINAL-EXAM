@@ -61,9 +61,24 @@ const deleteBookmarks = asyncHandler( async(req, res)=>{
     res.status(200).json({id: req.params.id})
 })
 
+
+//Get Bookmark by ID(search)
+const searchBookmarks = asyncHandler( async(req, res)=>{
+
+    const bookmark = await Bookmark.findById(req.params.id)
+
+    if(!bookmark){
+        res.status(400)
+        throw new Error('Bookmarks Not Found')
+    }
+
+    res.status(200).json(bookmark)
+})
+
 module.exports = {
     getBookmarks,
     setBookmarks,
     updateBookmarks,
     deleteBookmarks,
+    searchBookmarks,
 }

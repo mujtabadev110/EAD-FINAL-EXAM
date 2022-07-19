@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.use('/api/bookmars', require('./routes/bookmarkRoutes'))
+app.use('/api/bookmarks', require('./routes/bookmarkRoutes'))
 
 app.use(errorHandler)
 
